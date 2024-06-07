@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class ConversaoTemperatura {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite a temperatura em Celsius: ");
+        double celsius = scanner.nextDouble();
+        System.out.print("Deseja converter para Fahrenheit (F) ou Celsius (C)? ");
+        char escolha = scanner.next().charAt(0);
+        double resultado = 0;
+        switch (escolha) {
+            case 'F':
+                resultado = (celsius * 1.8) + 32; // Corrigido
+                System.out.println("Temperatura em Fahrenheit: " + resultado);
+                break;
+            case 'C':
+                System.out.println("Temperatura em Celsius: " + celsius);
+                break;
+            default:
+                System.out.println("Escolha inválida!");
+        }
+    }
+}
+
