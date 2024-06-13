@@ -9,14 +9,15 @@ class BankAccountTest {
 
 	@Test
 	public void testWithdraw() {
-		BankAccount banco = new BankAccount(1000);
+		BankAccount banco = new BankAccount(1200.0);
 		double valor = 500.0;
-		assertEquals(valor, banco.getBalance());
+		banco.withdraw(valor);
+		assertEquals(700.0, banco.getBalance());
 	}
 	
 	@Test
 	public void testWithdrawFail() {
-		BankAccount banco = new BankAccount(1000);
+		BankAccount banco = new BankAccount(1000.0);
 		double valor = 1500.0;
 		assertThrows(IllegalArgumentException.class, () -> {
             banco.withdraw(valor);
@@ -25,17 +26,17 @@ class BankAccountTest {
 	
 	@Test
 	public void testDeposit() {
-		BankAccount banco = new BankAccount(0);
+		BankAccount banco = new BankAccount(0.0);
 		double valor = 500.0;
-		assert(valor > 0) : "Valor de deposito não pode ser negativo";
-		assertEquals(valor, banco.getBalance());
+		banco.deposit(valor);
+		assertEquals(500.0, banco.getBalance());
 	}
 		
 	@Test
 	public void testBalance() {
-		BankAccount banco = new BankAccount(0);
-		banco.deposit(1000);
-		assertEquals(1000, banco.getBalance());
+		BankAccount banco = new BankAccount(0.0);
+		banco.deposit(1000.0);
+		assertEquals(1000.0, banco.getBalance());
 	}
 
 }
